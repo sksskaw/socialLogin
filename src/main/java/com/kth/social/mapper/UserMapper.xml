@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kth.social.mapper.UserMapper">
+
+	<select id="checkEmail" resultType="String" parameterType="String">
+		SELECT email
+		  FROM user
+		 WHERE email = #{email}
+	</select>
+
+	<insert id="insertUser" parameterType="map">
+		INSERT INTO user(email,pw,address)
+		     VALUES(#{email}, #{password}, #{address})
+	</insert>
+	
+	<select id="selectUser" resultType="String" parameterType="map">
+		SELECT email
+		  FROM user
+		 WHERE email = #{email} AND pw = #{password}
+	</select>
+</mapper>
