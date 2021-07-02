@@ -1,12 +1,12 @@
 package com.kth.social.mapper;
 
-import java.util.Map;
-
 import org.apache.ibatis.annotations.Mapper;
+
+import com.kth.social.vo.User;
 
 @Mapper
 public interface UserMapper {
-	String checkEmail(String email);
-	void insertUser(Map<String,Object> map);
-	String selectUser(Map<String,Object> map);
+	String checkUserId(String id);
+	void insertUser(User user);
+	void updateLoginStateById(String id, String state);
 }

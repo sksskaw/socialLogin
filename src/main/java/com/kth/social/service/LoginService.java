@@ -1,25 +1,25 @@
 package com.kth.social.service;
 
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kth.social.mapper.UserMapper;
+import com.kth.social.vo.User;
 
 @Service
 public class LoginService {
-	@Autowired UserMapper user; // mapper
+	@Autowired UserMapper userMapper; // mapper
 	
-	public String checkEmail(String email) {
-		return user.checkEmail(email);
+	public String checkUserId(String id) {
+		return userMapper.checkUserId(id);
 	}
 	
-	public void addUser(Map<String,Object> map) {
-		user.insertUser(map);
+	public void addUser(User user) {
+		userMapper.insertUser(user);
 	}
 	
-	public String Login(Map<String,Object> map) {
-		return user.selectUser(map);
+	public void modifyLoginState(String id, String state) {
+		userMapper.updateLoginStateById(id,state);
 	}
+	
 }
